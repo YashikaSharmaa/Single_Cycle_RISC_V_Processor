@@ -1,0 +1,16 @@
+01E00093  // li x1, 30        -> Load 30 into x1
+00A00113  // li x2, 10        -> Load 10 into x2
+00208533  // add x10, x1, x2  -> x10 = 30 + 10 = 40 (0x28)
+40208533  // sub x10, x1, x2  -> x10 = 30 - 10 = 20 (0x14)
+0020F533  // and x10, x1, x2  -> x10 = 30 AND 10 = 10 (0x0A)
+0020E533  // or x10, x1, x2   -> x10 = 30 OR 10  = 30 (0x1E)
+0020C533  // xor x10, x1, x2  -> x10 = 30 XOR 10 = 20 (0x14)
+0020A533  // slt x10, x1, x2  -> x10 = (30 < 10) ? 1 : 0 (Result: 0)
+00A52023  // sw x10, 0(x10)   -> Store x10 into memory (Testing Data Mem)
+00052503  // lw x10, 0(x10)   -> Load value back into x10
+00A50463  // beq x10, x10, 8  -> If x10 == x10, jump forward 8 bytes
+06300513  // li x10, 99       -> (This will be skipped by the branch)
+03700513  // li x10, 55       -> x10 = 55 (0x37)
+FEDCB537  // lui x10, 0xFEDCB -> Load Upper Immediate into x10 (final output b000)
+00000013  // nop              -> No Operation
+00000013  // nop              -> No Operation

@@ -1,0 +1,81 @@
+$date
+	Sat Apr 25 03:09:59 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module branch_control_tb $end
+$var wire 1 ! pc_branch $end
+$var reg 32 " alu_result [31:0] $end
+$var reg 1 # branch $end
+$var reg 3 $ funct3 [2:0] $end
+$var reg 1 % zero $end
+$scope module uut $end
+$var wire 32 & alu_result [31:0] $end
+$var wire 1 # branch $end
+$var wire 3 ' funct3 [2:0] $end
+$var wire 1 % zero $end
+$var reg 1 ! pc_branch $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 '
+b0 &
+0%
+b0 $
+0#
+b0 "
+0!
+$end
+#10000
+1%
+#20000
+1!
+1#
+#30000
+0!
+0%
+#40000
+1!
+b1 $
+b1 '
+#50000
+0!
+1%
+#60000
+1!
+b1 "
+b1 &
+b100 $
+b100 '
+#70000
+0!
+b0 "
+b0 &
+#80000
+1!
+b101 $
+b101 '
+#90000
+0!
+b1 "
+b1 &
+#100000
+1!
+b110 $
+b110 '
+#110000
+1!
+b0 "
+b0 &
+b111 $
+b111 '
+#120000
