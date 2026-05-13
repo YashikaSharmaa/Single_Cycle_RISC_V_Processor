@@ -5,7 +5,7 @@ A fully functional single-cycle RISC-V (RC32I) processor implemented in Verilog,
 ## Table of Contents
 
 - [Overview](#overview)
-- [Key Features](#key-features)
+- [Architechture](#architechture)
 
 ## Overview
 
@@ -13,14 +13,26 @@ A hardware implementation of a **RISC-V (RV32I)** processor designed in Verilog 
 
 The "Single-Cycle" architecture means that the every instruction - Fetch, Decode, Execute, Memory Access and Write-back - is performed within one clock cycle. 
 
-## Key Features
-
-- **Instruction set**: Supports full RV32I instruction set (R, I, S, B, U, J types).
-- **Hardware Implementation**: Optimized for FGPA sysnthsis using Vivado.
-- **Visual Output** Shows the output on the 7-segment diplay in Hexadecimal Encoding.
-- **Verification**: Working verified with unit testbenches.
-
 ## Architechture
 
 ![RISC-V Architechture](images/RISCV_blockDiagram.jpeg)
+
+## INstruction Set
+
+### R-type (Register Type, opcode 0110011)
+Arithmatic and Logic Operation
+
+| Instruction | Operation |
+|-------------|-----------|
+| `add`  | rd = rs1 + rs2 |
+| `sub`  | rd = rs1 − rs2 |
+| `and`  | rd = rs1 & rs2 |
+| `or`   | rd = rs1 \| rs2 |
+| `xor`  | rd = rs1 ^ rs2 |
+| `sll`  | rd = rs1 << rs2[4:0] |
+| `srl`  | rd = rs1 >> rs2[4:0] (logical) |
+| `sra`  | rd = rs1 >> rs2[4:0] (arithmetic) |
+| `slt`  | rd = (rs1 < rs2) signed ? 1 : 0 |
+| `sltu` | rd = (rs1 < rs2) unsigned ? 1 : 0 |
+
 
