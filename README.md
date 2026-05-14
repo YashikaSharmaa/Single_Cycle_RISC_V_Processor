@@ -28,7 +28,7 @@ The "Single-Cycle" architecture means that the every instruction - Fetch, Decode
 
 ## Architecture
 
-![RISC-V Architecture](images/RISCV_blockDiagram.jpeg)
+![RISC-V Architecture](images/RISCV_blockDiagram.jpg)
 
 ---
 
