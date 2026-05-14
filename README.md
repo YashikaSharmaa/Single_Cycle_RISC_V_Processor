@@ -7,7 +7,7 @@ A fully functional single-cycle RISC-V (RC32I) processor implemented in Verilog,
 ## Table of Contents
 
 - [Overview](#overview)
-- [Architechture](#architechture)
+- [Architecture](#architecture)
 - [Instruction Set](#instruction-set)
 - [File Structure](#file-structure)
 - [Module Description](#module-description)
@@ -26,9 +26,9 @@ The "Single-Cycle" architecture means that the every instruction - Fetch, Decode
 
 ---
 
-## Architechture
+## Architecture
 
-![RISC-V Architechture](images/RISCV_blockDiagram.jpeg)
+![RISC-V Architecture](images/RISCV_blockDiagram.jpeg)
 
 ---
 
