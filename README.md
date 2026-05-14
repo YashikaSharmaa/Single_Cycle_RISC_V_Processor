@@ -9,7 +9,12 @@ A fully functional single-cycle RISC-V (RC32I) processor implemented in Verilog,
 - [Overview](#overview)
 - [Architechture](#architechture)
 - [Instruction Set](#instruction-set)
-- 
+- [File Structure](#file-structure)
+- [Module Description](#module-description)
+- [Control Signals](#control-signals)
+- [Execution Summary](#execution-summary)
+- [Known Limitations](#known-limitations)
+- [References](#references)
 
 ---
 
@@ -58,6 +63,8 @@ Immediate Arithmatic and Logic Operation
 | `slli`  | rd = rs1 << shamt |
 | `srli`  | rd = rs1 >> shamt (logical) |
 | `srai`  | rd = rs1 >> shamt (arithmetic) |
+
+<!-- shamt: Shift Amount -->
 
 ### Load / Store
 
@@ -147,7 +154,7 @@ Single_Cycle_RISC_V_Processor/
 The top-module that connects all other modules into a working processor. It holds the PC register, computes `pc_plus4` and `pc_next`, and wires up the fetch -> decode -> execute -> memory -> writeback path. 
 The PC updates on every clock edge; the write-back MUX selects between ALU result, memory data, or `pc+4` depending on the instruction type.
 
-### 'instr_mem.v' - Instruction Memory
+### `instr_mem.v` - Instruction Memory
 
 A Read-Only Memory (ROM) that holds the program. At startup it loads `program.hex` using `$readmemh`. It takes the current PC as an address and outputs the 32-bit instruction for that address. The bottom two address bits are ignored since instructions are always 4-byte aligned. Uninitialized locations default to `NOP (0x00000013)`.
 
