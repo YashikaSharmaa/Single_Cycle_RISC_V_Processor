@@ -274,7 +274,7 @@ ALU control is derived combinationally from `funct3`, `funct7[5]`, and the instr
 
 ## References
 
-- Sarah L Harris & David Money Harris - *Digital Design and Computer Architechture RISC-V Edition*
+- Sarah L Harris & David Money Harris - *Digital Design and Computer Architecture RISC-V Edition*
 - [Digilent Basys3 Reference Manual](https://digilent.com/reference/programmable-logic/basys-3/reference-manual)
 
 ---
