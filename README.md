@@ -13,8 +13,10 @@ A fully functional single-cycle RISC-V (RV32I) processor implemented in Verilog,
 - [Module Description](#module-description)
 - [Control Signals](#control-signals)
 - [Execution Summary](#execution-summary)
+- [How to Simulate](#how-to-simulate)
 - [Known Limitations](#known-limitations)
 - [References](#references)
+- [LICENSE](#license)
 
 ---
 
@@ -142,7 +144,7 @@ Single_Cycle_RISC_V_Processor/
 │   ├── riscv_top_op
 │   └── riscv_top_op.vcd
 └── images/
-    └── RISCV_blockDiagram.jpeg
+    └── RISCV_blockDiagram.jpg
 ``` 
 
 ---
@@ -262,6 +264,57 @@ ALU control is derived combinationally from `funct3`, `funct7[5]`, and the instr
 | `0x3C` | `00000013` | `nop`               | `0xFEDCB000` | `B000` |
  
 ---
+## How to Simulate
+
+### Prerequisites
+- [Icarus Verilog](http://iverilog.icarus.com/) (`iverilog`) — open-source Verilog simulator
+- [GTKWave](https://gtkwave.sourceforge.net/) — waveform viewer for `.vcd` files
+
+On Ubuntu/Debian:
+```bash
+sudo apt install iverilog gtkwave
+```
+
+### Running a Module-Level Testbench
+
+Each module has a corresponding testbench in `TestBenches/`. To simulate, e.g. the ALU:
+
+```bash
+iverilog -o alu_op Source_Files/alu.v TestBenches/tb_alu.v
+vvp alu_op
+gtkwave alu_op.vcd
+```
+
+Or directly from the `VCDFiles/`:
+
+```bash
+vvp VCDFiles/alu_op
+gtkwave VCDFiles/alu_op.vcd
+```
+
+Use the same method for other modules by replacing `alu.v` and `tb_alu.v` with corresponding source files and testbenches.
+
+### Running the Full Processor Testbench
+
+```bash
+iverilog -o riscv_top_op Source_Files/*.v TestBenches/tb_riscv.v
+vvp riscv_top_op
+gtkwave riscv_top_op.vcd
+```
+
+This loads `program.hex` into instruction memory and runs the first 10 instruction sequences documented in the Execution Summary table above. 
+
+
+### FPGA Deployment
+
+To run on actual Basys3 hardware:
+1. Open Vivado, create a new project targeting `xc7a35tcpg236-1` (Basys3 part number)
+2. Add all files from `Source_Files/` as design sources
+3. Add `Constraint_Files/basys3.xdc` as the constraints file
+4. Run Synthesis → Implementation → Generate Bitstream
+5. Program the device via Hardware Manager
+
+---
 
 ## Known Limitations
 
@@ -278,3 +331,7 @@ ALU control is derived combinationally from `funct3`, `funct7[5]`, and the instr
 - [Digilent Basys3 Reference Manual](https://digilent.com/reference/programmable-logic/basys-3/reference-manual)
 
 ---
+
+## LICENSE
+
+This project is licensed under the MIT License — see the LICENSE file for details.
