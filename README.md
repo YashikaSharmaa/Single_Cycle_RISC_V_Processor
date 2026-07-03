@@ -230,11 +230,11 @@ Shows the lower 16 bits of `x10 (a0)` as four hex digits on the Basys3 display. 
 
 | Signal | Meaning | Asserted by |
 |--------|---------|-------------|
-| `reg_we` | Write enable for register file | R-type, I-arith, load, LUI, AUIPC, JAL, JALR |
-| `mem_we` | Write enable for data memory | SW |
-| `mem_re` | Read enable for data memory | LW |
-| `use_imm` | ALU B-input selects immediate | I-arith, load, store, LUI, AUIPC, JALR |
-| `take_branch` | Branch condition true | Depends on funct3 and ALU flags |
+| `reg_write` | Write enable for register file | R-type, I-arith, load, LUI, AUIPC, JAL, JALR |
+| `mem_write` | Write enable for data memory | SW |
+| `mem_read` | Read enable for data memory | LW |
+| `alu_src` | ALU B-input selects immediate | I-arith, load, store, LUI, AUIPC, JALR |
+| `branch` | Instruction is a branch type (BEQ/BNE/BLT/BGE) | branch opcode |
  
 ALU control is derived combinationally from `funct3`, `funct7[5]`, and the instruction type - no separate ALU decoder module is needed.
 
