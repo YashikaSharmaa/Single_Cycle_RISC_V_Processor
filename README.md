@@ -1,6 +1,6 @@
 # Single-Cycle RISC-V Processor
 
-A fully functional single-cycle RISC-V (RC32I) processor implemented in Verilog, targeting Xilinx Artix-7 Basys3 FGPA board.
+A fully functional single-cycle RISC-V (RV32I) processor implemented in Verilog, targeting Xilinx Artix-7 Basys3 FPGA board.
 
 ---
 
